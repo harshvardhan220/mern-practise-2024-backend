@@ -1,0 +1,9 @@
+Hands-on experience with AWS services such as EC2, S3, Lambda, and //TODO: API Gateway.
+♦ Strong understanding of database technologies like MySQL, PostgreSQL, or MongoDB.
+♦ Experience with containerization technologies such as Docker and Kubernetes is a plus.
+♦ Ability to work independently and as part of a team.
+♦ Excellent problem-solving and communication skills.
+♦ GraphQl.
+♦ Notifications.
+♦ multithreading proxy server project in c++
+
