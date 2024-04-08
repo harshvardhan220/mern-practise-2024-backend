@@ -6,8 +6,17 @@ const router = express.Router();
 // POST route for creating a new post
 router.post("/blogPosts", async (req, res) => {
   try {
-    const { title, description, author, date, technology } = req.body;
-    const post = new BlogPost({ title, description, author, date, technology });
+    const { title, description, author, date, technology, username, password } =
+      req.body;
+    const post = new BlogPost({
+      title,
+      description,
+      author,
+      date,
+      technology,
+      username,
+      password,
+    });
     await post.save();
     res.status(201).json(post);
   } catch (err) {
@@ -15,7 +24,7 @@ router.post("/blogPosts", async (req, res) => {
   }
 });
 
-//GET route to get blogPosts .
+//GET route to get blogPosts
 router.get("/blogPosts", async (req, res) => {
   try {
     const response = await BlogPost.find();
@@ -55,7 +64,7 @@ router.put("/blogPosts/:id", async (req, res) => {
       new: true,
     });
     if (!updatedPost) {
-      return res.status(404).json({ error: "User not found" });
+      return res.status(404).json({ error: "BlogPost not found" });
     }
     res.status(200).json(updatedPost);
   } catch (error) {
@@ -71,7 +80,7 @@ router.delete("/blogPosts/:id", async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-    res.json({ message: "User deleted successfully" });
+    res.json({ message: "BlogPost deleted successfully" });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
