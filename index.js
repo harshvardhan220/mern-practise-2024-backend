@@ -8,6 +8,7 @@ import starterApi from "./routes/starterApi.js";
 import blogPosts from "./routes/blogPosts.js";
 import BlogPost from "./models/BlogPost.js";
 import passport from "./auth.js"; // Import your authentication logic
+import urlShortener from "./routes/urlShortener.js";
 
 const localAuthMiddleware = passport.authenticate("local", { session: false });
 
@@ -19,6 +20,7 @@ dotenv.config();
 
 //Routes
 app.use("/api", blogPosts);
+app.use("/redirect", urlShortener);
 app.use("/api", localAuthMiddleware, starterApi);
 
 //PORT
